@@ -10,6 +10,13 @@
 }
 
 @font-face {
+  font-family: 'DIN';
+  src: url('/src/assets/fonts/DINEngschriftStd.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Marlboro';
   src: url('/src/assets/fonts/marlboro.ttf') format('truetype');
   font-weight: normal;
@@ -35,5 +42,5 @@
 }
 
 a {
-  font-family: "marlboro";
+  font-family: "din";
 }

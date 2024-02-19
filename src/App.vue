@@ -1,28 +1,59 @@
-<script setup>
-import Header from './components/layout/Header.vue'
-</script>
-
 <template>
   
   <div>
-    
-    <Header/> 
-    
+    <div class="bg-yellow-500 text-center">Under maintenance...</div>
+    <Header @some-event='toggleSideNavDrawer'/> 
+    <Transition name="fade">
+      <div v-if="toggleDrawer" @click="toggleSideNavDrawer" class="z-[49] fixed inset-0 w-screen h-screen bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm"></div>
+    </Transition>
+    <Transition name="slide">
+      <SideNavDrawerComponent class="md:hidden z-50" v-if="toggleDrawer"/>
+    </Transition>
+    <router-link to="/request" class="z-50 hover:bg-green-800 hover:text-white transition duration-300 ease-in-out bg-green-500 fixed top-2 right-2 rounded pr-2 pl-2 mr-4 font-din border border-white"> <font-awesome-icon :icon="['far', 'circle-check']" class="mr-1 pt-1" />Request a quote</router-link>
     <router-view class="bg-black"/>
   </div>
 </template>
 
+<script setup>
+import { ref } from 'vue';
+import Header from './components/layout/Header.vue'
+import SideNavDrawerComponent from "./components/layout/SideNavDrawerComponent.vue";
+
+var toggleDrawer = ref(false)
+
+const toggleSideNavDrawer = () => {
+  console.log("in parent")
+  toggleDrawer.value = !toggleDrawer.value
+}
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.slide-enter-from, .slide-leave-to {
+  transform: translateX(-100%);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.slide-enter-to, .slide-leave-from {
+  transform: translateY(0);
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.slide-enter-active {
+  transition: transform .3s ease;
+}
+.slide-leave-active {
+  transition: transform .3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  backdrop-filter: blur(0);
+  transform: translateY(0)
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  backdrop-filter: blur(5px);
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s ease, backdrop-filter .3s ease;
 }
 </style>

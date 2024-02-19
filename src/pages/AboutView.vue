@@ -1,34 +1,26 @@
 <template>
-    <div id="content-container" class="absolute top-0 left-0 h-screen w-full font-marlboro bg-black text-white">
+    <div id="content-container" class="absolute top-0 left-0 h-screen w-full font-din bg-black text-white">
         
 
         <div class="parallax"
-            :style="FlowerMeadow ? `background-image: url(${FlowerMeadow});` : 'background-color: black;'">
+            :style="Img1 ? `background-image: url(${Img1});` : 'background-color: black;'">
             <div class="z-[5] w-full h-full flex flex-col justify-start items-center text-white">
 
 
                 <div class="mt-48 text-center">
-                    <h1 class="text-6xl">Meet The Team</h1>
+                    <h1 class="text-6xl">Coming Soon...</h1>
                     <div id="single-info" class="flex flex-col md:flex-row justify-center items-center mt-8 ">
                         <div class="w-full md:w-1/2">
                             <div class="w-3/4 aspect-square rounded-full m-auto overflow-hidden">
-                                <img :src=FounderImage class="object-cover h-full" alt="">
+                                <img src="" class="object-cover h-full" alt="">
                             </div>
-                            <h2 class="text-4xl mt-8">Keith A. Foley</h2>
-                            <h3 class="text-2xl"> President and Founder</h3>
+                            <h2 class="text-4xl mt-8"></h2>
+                            <h3 class="text-2xl"></h3>
                         </div>
                         <div class="w-full md:w-1/2 text-2xl h-ful">
                             <div class="w-full p-8">
                                 <p>
-                                    Keith is a fourth-generation
-                                    Montanan, born and raised in the Montana City area, where he now continues to
-                                    raise his own family. Keith has worked in the technology industry for over 25 years,
-                                    working out of the Capital Beltway for the majority of it. He proudly served in the
-                                    United States Army including tours in Bosnia and Germany in 1994. Assisting with Veteran
-                                    affairs is extremely important and personal to Keith. While he’s not busy working in the
-                                    technology field, Keith manages his Montana ranch, recreates with all Montana has to
-                                    offer - side by siding, hunting, boating, are amongst his favorites, spending time with
-                                    his extended family, and volunteering his time to help others.
+                                    
                                 </p>
                             </div>
 
@@ -43,16 +35,13 @@
 
 
 <script setup>
-import MountainsDesert from "/src/assets/images/mountains_desert.jpeg";
-import MountainsSnow from "/src/assets/images/mountains_snow.jpeg";
-import FounderImage from "/src/assets/images/fsg_founder.jpg";
-import FlowerMeadow from "/src/assets/images/flower_meadow.jpeg";
+import Img1 from "/src/assets/images/img_1.webp";
 import { onMounted } from 'vue';
 
 
 const scenes = [
     {
-        imageSrc: MountainsDesert,
+        imageSrc: "",
         sectionTitle: "This is a title",
         sectionText: "This is text"
     },
@@ -63,7 +52,7 @@ const scenes = [
         sectionText: "This is text"
     },
     {
-        imageSrc: MountainsSnow,
+        imageSrc: "",
         sectionTitle: "This is a title",
         sectionText: "This is text"
     },

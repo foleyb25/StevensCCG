@@ -9,7 +9,10 @@ export default {
       fontFamily: {
         'texas': ['TexasBold'],
         'marlboro': ["Marlboro"],
-        'chunkfive': ['ChunkFive']
+        'chunkfive': ['ChunkFive'],
+        'roboto': ['Roboto', 'sans-serif'],
+        'arial': ['Arial', 'serif'],
+        'din': ['Din']
       }
     }
   },
