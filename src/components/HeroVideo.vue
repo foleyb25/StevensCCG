@@ -3,7 +3,14 @@
     <div class="absolute top-0 left-0 bg-black opacity-50 z-0 w-full h-full">
       hello
     </div>
-    <video autoplay muted loop class="w-auto min-h-full min-w-full z-[-1]">
+    <video
+      autoplay
+      muted
+      loop
+      controls
+      controlsList="nofullscreen"
+      class="w-auto min-h-full min-w-full z-[-1]"
+    >
       <source :src="heroVideo" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
