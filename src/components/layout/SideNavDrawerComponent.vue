@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <template>
   <!-- drawer component -->
   <div
@@ -17,46 +18,31 @@
     <div class="py-4 overflow-y-auto">
       <ul class="space-y-2 text-white">
         <li>
-          <router-link to="/">
-            <button
-              class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group"
-            >
+          <router-link to="/" class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group" @click="$emit('toggleDrawer')">
               <img :src="homeIcon" class="w-8 h-8" alt="" />
               <span class="flex-1 ml-3 text-left whitespace-nowrap">Home</span>
-            </button>
           </router-link>
         </li>
         <li>
-          <router-link to="/services">
-            <button
-              class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group"
-            >
+          <router-link to="/services" class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group" @click="$emit('toggleDrawer')">
               <img :src="servicesIcon" class="w-8 h-8" alt="" />
               <span class="flex-1 ml-3 text-left whitespace-nowrap"
                 >Services</span
               >
-            </button>
           </router-link>
         </li>
         <li>
-          <router-link to="/about">
-            <button
-              class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group"
-            >
+          <router-link to="/about" class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group" @click="$emit('toggleDrawer')">
               <img :src="aboutIcon" class="w-8 h-8" alt="" />
               <span
                 class="flex-1 ml-3 text-left whitespace-nowrap"
                 sidebar-toggle-item
                 >About</span
               >
-            </button>
           </router-link>
         </li>
         <li>
-          <router-link to="/projects">
-            <button
-              class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group"
-            >
+          <router-link to="/projects" class="flex items-center p-2 w-full text-base text-white hover:bg-gray-200 hover:text-gray-900 rounded-lg transition duration-75 group" @click="$emit('toggleDrawer')">
               <img
                 :src="projectsIcon"
                 class="w-8 h-8 filter grayscale brightness-100"
@@ -67,7 +53,6 @@
                 sidebar-toggle-item
                 >Projects</span
               >
-            </button>
           </router-link>
         </li>
       </ul>
