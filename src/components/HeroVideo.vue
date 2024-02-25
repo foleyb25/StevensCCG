@@ -7,8 +7,7 @@
       autoplay
       muted
       loop
-      controlsList="nofullscreen"
-      class="w-auto min-h-full min-w-full z-[-1]"
+      class="w-auto min-h-full min-w-full z-[-1] pointer-events-none"
     >
       <source :src="heroVideo" type="video/mp4" />
       Your browser does not support the video tag.
