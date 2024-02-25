@@ -1,41 +1,42 @@
 <template>
-    <div class="parallax " :style="{ backgroundImage: `url(${imageSrc})`}">
-    <div class="flex flex-col items-start w-full h-screen bg-black text-white bg-opacity-50">
-      <slot></slot>
+  <div class="parallax" :style="{ backgroundImage: `url(${imageSrc})` }">
+    <div
+      class="flex flex-col items-start w-full h-screen bg-black text-white bg-opacity-50"
+    >
+      <slot />
     </div>
-    </div>
-  </template>
-  
-  <script setup>
- import { ref, onMounted, toRefs } from 'vue'  
-  // Props
-  const props = defineProps({
-    imageSrc: String
-  })
+  </div>
+</template>
 
-  const getNuxtPageScrollPosition = ref(0)
+<script setup>
+import { ref, onMounted, toRefs } from "vue";
+// Props
+const props = defineProps({
+  imageSrc: {
+    type: String,
+    default: "",
+  },
+});
 
- // convert props to reactive references
-  const { imageSrc } = toRefs(props)
+// convert props to reactive references
+const { imageSrc } = toRefs(props);
 
-  // Image
-  const image = ref('')
+// Image
+const image = ref("");
 
-  onMounted( async () => {
-    const imgModule = ""
-    image.value = imgModule.default
-  })
-  
-  </script>
-  
-  <style scoped>
-  .parallax {
-    height: 100vh;
-    border-bottom: 10px solid black;
-    background-position: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  </style>
-  
+onMounted(async () => {
+  const imgModule = "";
+  image.value = imgModule.default;
+});
+</script>
+
+<style scoped>
+.parallax {
+  height: 100vh;
+  border-bottom: 10px solid black;
+  background-position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
