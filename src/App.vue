@@ -21,7 +21,6 @@ import SideNavDrawerComponent from "./components/layout/SideNavDrawerComponent.v
 var toggleDrawer = ref(false)
 
 const toggleSideNavDrawer = () => {
-  console.log("in parent")
   toggleDrawer.value = !toggleDrawer.value
 }
 </script>
