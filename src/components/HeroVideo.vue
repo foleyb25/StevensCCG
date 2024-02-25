@@ -7,7 +7,6 @@
       autoplay
       muted
       loop
-      controls
       controlsList="nofullscreen"
       class="w-auto min-h-full min-w-full z-[-1]"
     >
