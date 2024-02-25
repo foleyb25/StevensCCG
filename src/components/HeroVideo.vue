@@ -5,6 +5,7 @@
     </div>
     <video
       autoplay
+      playsinline
       muted
       loop
       class="w-auto min-h-full min-w-full z-[-1] pointer-events-none"
