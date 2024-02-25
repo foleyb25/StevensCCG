@@ -5,13 +5,13 @@
             <img :key="currentIndex" :src="images[currentIndex]" alt="Slideshow Image" class="w-full h-full object-cover absolute top-0 left-0">
         </transition>
         <div class="absolute bg-black opacity-50 top-0 left-0 w-full h-full"></div>
-            <div class="font-din hero-content absolute top-8 left-0 z-10 w-full h-full flex flex-col justify-center items-center text-center text-white">
+            <div class="font-din hero-content absolute top-8 left-0 z-[9] w-full h-full flex flex-col justify-center items-center text-center text-white">
                 <div id="logo" class="w-1/2 flex justify-center mb-8">
                     <img :src="stevensCustomLogo" class="rounded-full h-48 w-48" alt="Stevens Custom Crushing Company Logo">
                 </div>
                 <div id="tagline" class="w-1/2 flex flex-col justify-center items-center">
-                    <h1 class="text-start text-2xl md:text-4xl font-bold overflow-clip">Stevens Custom Crushing and Gravel</h1>
-                    <p class="text-start mt-4 text-lg md:text-xl">Building America's infrastructure</p>
+                    <h1 class="text-center text-2xl md:text-4xl font-bold overflow-clip">Stevens Custom Crushing and Gravel</h1>
+                    <p class="text-center mt-4 text-lg md:text-xl">Building America's infrastructure</p>
                 </div>
             </div>
         

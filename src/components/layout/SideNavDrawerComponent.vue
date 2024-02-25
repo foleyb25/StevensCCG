@@ -9,6 +9,7 @@
 				Stevens Custom Crushing and Gravel
 			</h5>
 			<button
+                @click="$emit('toggleDrawer')"
 				type="button"
 				class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
 			>
@@ -22,7 +23,7 @@
 							<button
 								class="flex items-center p-2 w-full text-base text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 							>
-                                <img :src="servicesIcon" class="w-8 h-8" alt="">
+                                <img :src="homeIcon" class="w-8 h-8" alt="">
 								<span
 									class="flex-1 ml-3 text-left whitespace-nowrap"
 									>Home</span
@@ -77,6 +78,7 @@
 </template>
 
 <script setup>
+import homeIcon from "/src/assets/images/home-icon.svg"
 import servicesIcon from "/src/assets/images/services-icon.svg"
 import aboutIcon from "/src/assets/images/about-icon.svg"
 import projectsIcon from "/src/assets/images/projects-icon.svg"
