@@ -30,23 +30,11 @@
 <script setup>
 import HeroVideo from "../components/HeroVideo.vue";
 import ImageSlideshow from "../components/ImageSlideshow.vue";
-import MountainsDesert from "/src/assets/images/mountains_desert.jpeg";
-import MountainsSnow from "/src/assets/images/mountains_snow.jpeg";
 import { onMounted, reactive } from "vue";
 
 const scenes = reactive([
   {
     imageSrc: "",
-    sectionTitle: "This is a title",
-    sectionText: "This is text",
-  },
-  {
-    imageSrc: MountainsDesert,
-    sectionTitle: "This is a title",
-    sectionText: "This is text",
-  },
-  {
-    imageSrc: MountainsSnow,
     sectionTitle: "This is a title",
     sectionText: "This is text",
   },

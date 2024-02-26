@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import Img2 from "/src/assets/images/img_2.jpeg";
+import Img2 from "/src/assets/images/img_2.webp";
 import { onMounted } from "vue";
 
 const scenes = [
