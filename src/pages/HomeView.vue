@@ -1,28 +1,33 @@
 <template>
   <div>
     <HeroVideo class="hidden md:block" />
-    <ImageSlideshow class="md:hidden" />
-    <div id="content-container" class="w-full font-din">
-      <div
-        class="parallax"
-        :style="
-          scenes[0].imageSrc
-            ? `background-image: url(${scene.imageSrc});`
-            : 'background-color: black;'
-        "
-      >
-        <div
-          class="z-[5] w-full h-full flex flex-col justify-start items-center text-white"
-        >
-          <div class="mt-8 text-center">
-            <p class="text-xl">Welcome To</p>
-            <h1 class="text-6xl">Stevens Custom Crushing and Gravel</h1>
-            <p class="text-2xl p-24">Introductory Text...</p>
-          </div>
-        </div>
-      </div>
+    <ImageSlideshow
+      class="md:hidden"
+      sub-heading="Revolutionizing America's infrastructure through innovation"
+    />
 
-      <!-- Add More Parallax containers here... -->
+    <div class="flex flex-col items-center justify-center space-y-8 mt-8">
+      <DescriptionBoxComponent
+        class="w-[80%] aspect-video animate-me"
+        header="Services"
+        description="This is an example description"
+        link="/services"
+      />
+      <DescriptionBoxComponent
+        class="w-[80%] aspect-video"
+        header="Projects"
+        description="This is an example description"
+        link="/projects"
+      />
+      <DescriptionBoxComponent
+        class="w-[80%] aspect-video"
+        header="About"
+        description="This is an example description"
+        link="/about"
+      />
+    </div>
+    <div class="flex flex-col items-center justify-center my-8">
+      <GetInTouchComponent class="w-[80%] aspect-[14/16]" link="/request" />
     </div>
   </div>
 </template>
@@ -30,24 +35,8 @@
 <script setup>
 import HeroVideo from "../components/HeroVideo.vue";
 import ImageSlideshow from "../components/ImageSlideshow.vue";
-import { onMounted, reactive } from "vue";
-
-const scenes = reactive([
-  {
-    imageSrc: "",
-    sectionTitle: "This is a title",
-    sectionText: "This is text",
-  },
-]);
-
-onMounted(() => {
-  scenes.forEach((scene) => {
-    if (scene.imageSrc) {
-      const img = new Image();
-      img.src = scene.imageSrc;
-    }
-  });
-});
+import DescriptionBoxComponent from "../components/DescriptionBoxComponent.vue";
+import GetInTouchComponent from "../components/GetInTouchComponent.vue";
 </script>
 
 <style scoped>

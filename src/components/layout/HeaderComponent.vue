@@ -27,13 +27,13 @@
       :class="{ 'center-style': !isScrolled }"
       class="relative flex w-full items-center justify-between bg-transparent"
     >
-      <div v-if="isScrolled" class="h-32 aspect-square ml-8">
+      <router-link v-if="isScrolled" to="/" class="h-32 aspect-square ml-8">
         <img
           :src="stevensCustomLogo"
           class="rounded-full h-[80%] mt-2"
           alt="Stevens Custom Crushing Logo"
         />
-      </div>
+      </router-link>
 
       <nav
         class="hidden md:block"

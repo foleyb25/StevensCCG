@@ -25,7 +25,7 @@
           Stevens Custom Crushing and Gravel
         </h1>
         <p class="text-center mt-4 text-lg md:text-xl">
-          Building America's infrastructure
+          {{ subHeading }}
         </p>
       </div>
     </div>
@@ -39,6 +39,13 @@ import Img5 from "/src/assets/images/img_5.webp";
 import Img6 from "/src/assets/images/img_6.webp";
 import Img7 from "/src/assets/images/img_7.webp";
 import Img8 from "/src/assets/images/img_8.webp";
+
+defineProps({
+  subHeading: {
+    type: String,
+    default: "",
+  },
+});
 
 const interval = ref(5000);
 const currentIndex = ref(0);

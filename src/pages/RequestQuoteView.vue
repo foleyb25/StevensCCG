@@ -1,107 +1,90 @@
 <template>
   <div
-    id="content-container"
-    class="absolute top-0 left-0 h-screen w-full font-din bg-black text-white"
+    class="flex flex-col items-center justify-center p-8 font-din text-white"
   >
-    <div
-      class="parallax"
-      :style="
-        Img3 ? `background-image: url(${Img3});` : 'background-color: black;'
-      "
-    >
-      <div
-        class="z-[5] w-full h-full flex flex-col justify-start items-center text-white"
-      >
-        <div class="mt-48 text-center">
-          <h1 class="text-6xl">Coming Soon...</h1>
-          <div
-            id="single-info"
-            class="flex flex-col md:flex-row justify-center items-center mt-8"
+    <h1 class="text-4xl font-bold mb-4 mt-48">Drop in and say hi 👋</h1>
+    <p class="mb-8">
+      Whether you are requesting a quote or simply reaching out, fill in the
+      following form and we'll get back to you within 24 hours.
+    </p>
+
+    <form @submit.prevent="submitForm" class="w-full max-w-lg">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3 mb-6">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="name"
           >
-            <div class="w-full md:w-1/2">
-              <div
-                class="w-3/4 aspect-square rounded-full m-auto overflow-hidden"
-              >
-                <img src="" class="object-cover h-full" alt="" />
-              </div>
-              <h2 class="text-4xl mt-8" />
-              <h3 class="text-2xl" />
-            </div>
-            <div class="w-full md:w-1/2 text-2xl h-ful">
-              <div class="w-full p-8">
-                <p />
-              </div>
-            </div>
-          </div>
+            Your name:
+          </label>
+          <input
+            v-model="formObject.name"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="name"
+            type="text"
+            placeholder="Jane Doe"
+          />
         </div>
       </div>
-    </div>
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="email"
+          >
+            Your email:
+          </label>
+          <input
+            v-model="formObject.email"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="email"
+            type="email"
+            placeholder="jane@example.com"
+          />
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="message"
+          >
+            Your message to us:
+          </label>
+          <textarea
+            v-model="formObject.message"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            id="message"
+            rows="5"
+            placeholder="Enter your message here..."
+          ></textarea>
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mt-6">
+        <div class="w-full px-3">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            type="submit"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup>
-import Img3 from "/src/assets/images/img_3.webp";
-import { onMounted } from "vue";
+import { reactive } from "vue";
 
-const scenes = [
-  {
-    imageSrc: "",
-    sectionTitle: "This is a title",
-    sectionText: "This is text",
-  },
-
-  {
-    imageSrc: "",
-    sectionTitle: "This is a title",
-    sectionText: "This is text",
-  },
-  {
-    imageSrc: "",
-    sectionTitle: "This is a title",
-    sectionText: "This is text",
-  },
-];
-
-onMounted(() => {
-  scenes.forEach((scene) => {
-    if (scene.imageSrc) {
-      const img = new Image();
-      img.src = scene.imageSrc;
-    }
-  });
+const formObject = reactive({
+  name: "",
+  email: "",
+  message: "",
 });
+const submitForm = () => {
+  // Here you would handle the form submission, e.g., make an API call
+  console.log(this.form);
+  alert("Form submitted! Check the console for the form data.");
+};
 </script>
-
-<style scoped>
-.parallax {
-  min-height: 100vh;
-  border-bottom: 10px solid black;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  /* Added for positioning the pseudo-element */
-}
-
-.parallax::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* 50% opacity black */
-  z-index: 0;
-  /* Positioned behind the content */
-}
-
-.parallax-white::before {
-  background-color: rgb(255, 255, 255, 0.5);
-  /* 50% opacity black */
-}
-</style>

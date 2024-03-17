@@ -1,8 +1,8 @@
 <template>
   <div class="relative w-screen overflow-hidden">
-    <div class="absolute top-0 left-0 bg-black opacity-50 z-0 w-full h-full">
-      hello
-    </div>
+    <div
+      class="absolute top-0 left-0 bg-black opacity-50 z-0 w-full h-full"
+    ></div>
     <video
       autoplay
       playsinline
@@ -29,7 +29,7 @@
           Stevens Custom Crushing and Gravel
         </h1>
         <p class="text-start mt-4 text-lg md:text-xl">
-          Building America's infrastructure
+          Revolutionizing America's infrastructure through innovation
         </p>
       </div>
     </div>

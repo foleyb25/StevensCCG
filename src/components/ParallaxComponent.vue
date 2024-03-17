@@ -1,10 +1,19 @@
 <template>
-  <div class="parallax" :style="{ backgroundImage: `url(${imageSrc})` }">
+  <div
+    class="parallax relative w-full flex-grow flex items-center justify-center"
+    :style="
+      imageSrc
+        ? `background-image: url(${imageSrc});`
+        : 'background-color: black;'
+    "
+  >
+    <!-- opacity layer -->
     <div
-      class="flex flex-col items-start w-full h-screen bg-black text-white bg-opacity-50"
-    >
-      <slot />
-    </div>
+      class="absolute top-0 bottom-0 h-full w-full bg-black opacity-50"
+    ></div>
+
+    <!-- content layer -->
+    <slot class="relative"></slot>
   </div>
 </template>
 
@@ -13,6 +22,10 @@ import { ref, onMounted, toRefs } from "vue";
 // Props
 const props = defineProps({
   imageSrc: {
+    type: String,
+    default: "",
+  },
+  title: {
     type: String,
     default: "",
   },
@@ -32,9 +45,7 @@ onMounted(async () => {
 
 <style scoped>
 .parallax {
-  height: 100vh;
-  border-bottom: 10px solid black;
-  background-position: fixed;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

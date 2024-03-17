@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-h-screen bg-black">
     <HeaderComponent @toggle-drawer="toggleSideNavDrawer" />
     <Transition name="fade">
       <div
@@ -15,13 +15,15 @@
         @toggle-drawer="toggleSideNavDrawer"
       />
     </Transition>
-    <router-view class="bg-black" />
+    <router-view />
+    <FooterComponent />
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import HeaderComponent from "./components/layout/HeaderComponent.vue";
+import FooterComponent from "./components/layout/FooterComponent.vue";
 import SideNavDrawerComponent from "./components/layout/SideNavDrawerComponent.vue";
 
 var toggleDrawer = ref(false);
