@@ -1,6 +1,6 @@
 <template>
   <div
-    class="parallax relative w-full flex-grow flex items-center justify-center"
+    class="parallax bg-scroll md:bg-fixed relative w-full flex-grow flex items-center justify-center"
     :style="
       imageSrc
         ? `background-image: url(${imageSrc});`
