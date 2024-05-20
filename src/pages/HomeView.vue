@@ -1,67 +1,76 @@
 <template>
-  <div>
-    <HeroVideo class="hidden md:block" />
-    <ImageSlideshow
-      class="md:hidden"
-      sub-heading="Revolutionizing America's infrastructure through innovation"
-    />
-
-    <div class="flex flex-col items-center justify-center space-y-8 mt-8">
-      <DescriptionBoxComponent
-        class="w-[80%] aspect-video animate-me"
-        header="Services"
-        description="This is an example description"
-        link="/services"
-      />
-      <DescriptionBoxComponent
-        class="w-[80%] aspect-video"
-        header="Projects"
-        description="This is an example description"
-        link="/projects"
-      />
-      <DescriptionBoxComponent
-        class="w-[80%] aspect-video"
-        header="About"
-        description="This is an example description"
-        link="/about"
-      />
+  <div class="slideshow-container">
+    <div v-for="(image, index) in images" :key="index" class="fade">
+      <div class="numbertext">{{ index + 1 }} / {{ images.length }}</div>
+      <img :src="image.url" class="h-screen object-fit" />
     </div>
-    <div class="flex flex-col items-center justify-center my-8">
-      <GetInTouchComponent class="w-[80%] aspect-[14/16]" link="/request" />
+
+    <!-- Dots navigation -->
+    <div style="text-align: center">
+      <span
+        class="dot"
+        v-for="(image, index) in images"
+        :key="index"
+        :class="{ active: currentSlide === index }"
+        @click="currentSlide = index"
+      >
+      </span>
     </div>
   </div>
 </template>
 
-<script setup>
-import HeroVideo from "../components/HeroVideo.vue";
-import ImageSlideshow from "../components/ImageSlideshow.vue";
-import DescriptionBoxComponent from "../components/DescriptionBoxComponent.vue";
-import GetInTouchComponent from "../components/GetInTouchComponent.vue";
+<script>
+export default {
+  data() {
+    return {
+      images: [
+        { url: "/src/assets/images/img_1_full.webp" },
+        { url: "/src/assets/images/img_2_full.webp" },
+        { url: "/src/assets/images/img_3_full.webp" },
+      ],
+      currentSlide: 0,
+    };
+  },
+  mounted() {
+    this.startSlideshow();
+  },
+  methods: {
+    startSlideshow() {
+      setInterval(() => {
+        this.currentSlide = (this.currentSlide + 1) % this.images.length;
+      }, 3000); // Change slide every 3 seconds
+    },
+  },
+};
 </script>
 
 <style scoped>
-.parallax {
-  height: 100vh;
-  border-bottom: 10px solid black;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  /* Added for positioning the pseudo-element */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-.parallax::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot.active {
+  background-color: #717171;
 }
 </style>
