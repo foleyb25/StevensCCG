@@ -1,76 +1,43 @@
 <template>
-  <div class="slideshow-container">
-    <div v-for="(image, index) in images" :key="index" class="fade">
-      <div class="numbertext">{{ index + 1 }} / {{ images.length }}</div>
-      <img :src="image.url" class="h-screen object-fit" />
-    </div>
+  <div class="bg-white h-screen w-full">
+    <carousel :items-to-show="1" wrap-around="true" autoplay="5000" class="">
+      <slide v-for="slide in 10" :key="slide">
+        <div class="carousel__item">
+          <img :src="Img5" alt="Image 5" class="h-screen w-full" />
+        </div>
+      </slide>
 
-    <!-- Dots navigation -->
-    <div style="text-align: center">
-      <span
-        class="dot"
-        v-for="(image, index) in images"
-        :key="index"
-        :class="{ active: currentSlide === index }"
-        @click="currentSlide = index"
-      >
-      </span>
+      <template #addons> </template>
+    </carousel>
+    <div>
+      <button @click="next">Next</button>
+      <input type="number" min="0" max="9" v-model="currentSlide" />
+      <button @click="prev">Prev</button>
     </div>
   </div>
 </template>
 
 <script>
+// If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import Img5 from "/src/assets/images/img_5.webp";
+import Img6 from "/src/assets/images/img_6.webp";
+import Img7 from "/src/assets/images/img_7.webp";
+import Img8 from "/src/assets/images/img_8.webp";
+
 export default {
+  name: "App",
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
+  },
   data() {
     return {
-      images: [
-        { url: "/src/assets/images/img_1_full.webp" },
-        { url: "/src/assets/images/img_2_full.webp" },
-        { url: "/src/assets/images/img_3_full.webp" },
-      ],
-      currentSlide: 0,
+      Img5: Img5,
     };
-  },
-  mounted() {
-    this.startSlideshow();
-  },
-  methods: {
-    startSlideshow() {
-      setInterval(() => {
-        this.currentSlide = (this.currentSlide + 1) % this.images.length;
-      }, 3000); // Change slide every 3 seconds
-    },
   },
 };
 </script>
-
-<style scoped>
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.dot.active {
-  background-color: #717171;
-}
-</style>
