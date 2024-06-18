@@ -9,6 +9,9 @@
     >
       <slide v-for="slide in 4" :key="slide">
         <div class="carousel__item w-full h-[90vh]">
+          <div
+            class="fixed top-0 left-0 bg-black opacity-50 h-full w-full"
+          ></div>
           <img :src="Img5" alt="Image 5" class="object-cover" />
         </div>
       </slide>
@@ -35,7 +38,6 @@ export default {
     Carousel,
     Slide,
     Pagination,
-    Navigation,
   },
   data() {
     return {

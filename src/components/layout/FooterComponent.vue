@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full bg-gray-300 min-h-[275px] p-4">
+  <hr class="border border-gray-500" />
+  <div class="w-full bg-white min-h-[275px] p-4">
     <div id="img-container" class="h-32 aspect-square">
       <router-link to="/"
         ><img
@@ -17,7 +18,7 @@
 </template>
 
 <script setup>
-import stevensCustomLogo from "/src/assets/images/stevensCustomLogo.webp";
+import stevensCustomLogo from "/src/assets/images/stevensCustomLogo.jpg";
 </script>
 
 <style lang="scss" scoped></style>
