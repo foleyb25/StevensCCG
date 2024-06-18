@@ -1,19 +1,22 @@
 <template>
   <div class="bg-white h-screen w-full">
-    <carousel :items-to-show="1" wrap-around="true" autoplay="5000" class="">
-      <slide v-for="slide in 10" :key="slide">
-        <div class="carousel__item">
-          <img :src="Img5" alt="Image 5" class="h-screen w-full" />
+    <carousel
+      :items-to-show="1"
+      wrap-around="true"
+      autoplay="5000"
+      :touch-drag="false"
+      :mouse-drag="false"
+    >
+      <slide v-for="slide in 4" :key="slide">
+        <div class="carousel__item w-full h-[90vh]">
+          <img :src="Img5" alt="Image 5" class="object-cover" />
         </div>
       </slide>
 
-      <template #addons> </template>
+      <template #addons>
+        <Pagination />
+      </template>
     </carousel>
-    <div>
-      <button @click="next">Next</button>
-      <input type="number" min="0" max="9" v-model="currentSlide" />
-      <button @click="prev">Prev</button>
-    </div>
   </div>
 </template>
 
@@ -41,3 +44,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>
