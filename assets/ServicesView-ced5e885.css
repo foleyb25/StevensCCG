@@ -1,1 +1,0 @@
-.card[data-v-5df01b32]{position:relative;width:100%;transform-style:preserve-3d;transition:transform 1s;height:22rem}.card .face[data-v-5df01b32]{position:absolute;width:100%;min-height:100%;backface-visibility:hidden;padding:1.25rem}.card .front[data-v-5df01b32]{z-index:2;transform:rotateY(0)}.card .back[data-v-5df01b32],.card.flipped[data-v-5df01b32]{transform:rotateY(180deg)}
