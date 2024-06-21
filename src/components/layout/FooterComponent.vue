@@ -1,7 +1,7 @@
 <template>
   <hr class="border border-gray-500" />
   <div class="w-full bg-white min-h-[275px] p-4">
-    <div id="img-container" class="h-32 aspect-square">
+    <div id="img-container" class="h-48 aspect-square">
       <router-link to="/"
         ><img
           :src="stevensCustomLogo"
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import stevensCustomLogo from "/src/assets/images/stevensCustomLogo.jpg";
+import stevensCustomLogo from "/src/assets/images/stevensCustomLogo.png";
 </script>
 
 <style lang="scss" scoped></style>

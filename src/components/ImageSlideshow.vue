@@ -34,7 +34,7 @@
 
 <script setup>
 import { onMounted, onDeactivated, ref, reactive } from "vue";
-import stevensCustomLogo from "/src/assets/images/stevensCustomLogo.webp";
+import stevensCustomLogo from "/src/assets/images/stevensCustomLogo.png";
 import Img5 from "/src/assets/images/img_5.webp";
 import Img6 from "/src/assets/images/img_6.webp";
 import Img7 from "/src/assets/images/img_7.webp";

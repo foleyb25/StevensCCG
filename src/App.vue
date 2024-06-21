@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-black">
+  <div class="min-h-screen font-sans">
     <HeaderComponent @toggle-drawer="toggleSideNavDrawer" />
     <Transition name="fade">
       <div
