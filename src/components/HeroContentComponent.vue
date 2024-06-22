@@ -17,16 +17,26 @@
       id="video-splash-desktop"
       class="hidden md:block relative w-screen overflow-hidden"
     >
-      <video
-        autoplay
-        playsinline
-        muted
-        loop
-        class="w-auto min-h-full min-w-full z-[-1] pointer-events-none"
-      >
-        <source :src="droneVideo" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div style="padding: 56.25% 0 0 0; position: relative">
+        <transition name="fade">
+          <!-- Only show image if video isn't ready -->
+          <img
+            v-if="!videoReady.value"
+            :src="placeHolderImage"
+            alt="Loading Video"
+            class="h-full min-w-full object-cover object-top absolute top-0 left-0"
+            @load="imageLoaded"
+          />
+        </transition>
+        <iframe
+          title="Drone Footage of Stevens Custom Crushing and Gravel Pit"
+          src="https://player.vimeo.com/video/965028422?background=1"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          class="absolute top-0 left-0 w-full h-full pointer-events-none"
+          @load="videoLoaded"
+        ></iframe>
+      </div>
     </div>
     <div class="w-full md:w-[40%] lg:w-1/3">
       <router-link to="/contact">
@@ -54,6 +64,28 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import mobileBackgroundImage from "/src/assets/images/home_main_mobile.jpg";
-import droneVideo from "/src/assets/videos/droneFootage.mp4";
+import placeHolderImage from "/src/assets/images/placeHolderImage.jpg";
+
+const videoReady = ref(false);
+
+function imageLoaded() {
+  console.log("Placeholder image loaded.");
+}
+
+function videoLoaded() {
+  videoReady.value = true; // Hide image when video is ready
+}
 </script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
